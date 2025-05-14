@@ -150,3 +150,61 @@ performance across different subsets of the dataset,
 implemented with scikit learn. To improve training efficiency,
 mixed precision training (torch.amp) is enabled, allowing for
 faster computation while maintaining numerical stability
+
+### Results and Discussions
+
+Throughout trial and error, the final model for both parts
+was shown to possess a high accuracy between both the training
+set and the validation set. For Part 1, this model was referred to
+as 1_CNN_5, and for Part 2, it was referred to as 2_CNN_6.
+Both models utilized multiple convolutional layers and boasted
+max validation accuracies of 97.99% and 99.40% respectively. 
+
+For Part 1, the model performs excellently over all seven
+convolutional layers and ends with an incredible accuracy of
+97.77% on average. For Part 2, the case is similar to the eight
+convolutional layers resulting in an average accuracy of
+99.11%. The reasons for this accuracy are many. Firstly, the
+usage of multiple layers was integral to the success of the
+model. Both models struggled early on when only given 2-3
+convolutional layers, and experienced accuracy around 40-
+60%. This was a clear problem of underfitting. Once more
+layers were added, the models began properly fitting their data,
+and success rose.
+Secondly, the usage of cross validation cannot be
+understated in importance. In comparison between the model
+with 3 layers and cross versus 3 layers and no cross was
+approximately 39%! While this later success could be given to
+multiple sources, it is reasonable to state that cross validation
+played a large role.
+Thirdly, the ability of the model to generalize and normalize
+was crucial. Implementing multiple forms of transformations,
+dropout, and batch normalization aided the model in
+transferring its success to the validation set. In fact, it can be
+argued that these processes were too efficient. As seen in both
+optimized models, the validation losses/accuracies are
+consistently better than the training set equivalent. This is
+unusual, but not a bad sign. Realistically, this is probably due
+to the large amount of normalization present, which made the
+training set harder to analyze that the validation set. Again, this
+is not a bad problem.
+While other forms of aid certainly contributed to the
+models’ success, such as Adam, the learning rate, weight decay,
+or the scheduler, the three listed previously would seem to have
+the greatest effect. The combination of these important methods
+has created an excellent emotion identifier and hand-face
+recognizer. It is even more noteworthy that these models are
+almost identical in theory – they are only separated by a single
+layer.
+
+The future is bright for this study. Given the limited scope
+that the experiment covered and the imperfections within the
+dataset, it cannot be overstated that these models are just the
+beginning. In fact, with the data available, more time could be
+poured into obtaining the perfect learning rate, weight decay, or
+layer count. Unfortunately, the models have nearly reached the
+limit of their potential on a single laptop as experimented with,
+given that the computing time on the GPU has reached upwards
+of almost six hours. Regardless, this study can be expanded by
+increasing augmentations, providing more limbs or other faces,
+significantly changing distance from face, or adding objects. 
